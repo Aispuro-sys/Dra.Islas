@@ -151,10 +151,11 @@
     overflow:hidden;
   }
   .hero-card-photo{
-    height:440px;
-    background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80');
+    height:680px;
+    background-image:url('../assets/dr.islas.jpg');
     background-size:cover;
-    background-position:center 20%;
+    background-position:top center;
+    background-repeat:no-repeat;
     position:relative;
   }
   .hero-card-photo::before{
@@ -181,7 +182,7 @@
   }
   .hero-card-cred .avatar{
     width:64px;height:64px;border-radius:50%;flex-shrink:0;
-    background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=160&q=80');
+    background-image:url('../assets/dr.islas.jpg');
     background-size:cover;background-position:center 20%;
     border:3px solid rgba(255,255,255,.9);
     box-shadow:0 4px 14px -4px rgba(0,0,0,.3);
@@ -492,7 +493,7 @@
   @media(min-width:1440px){
     .container{max-width:1360px;padding:0 48px}
     .hero h1{font-size:3.4rem}
-    .hero-card-photo{height:500px}
+    .hero-card-photo{height:720px}
   }
   @media(max-width:1080px){
     .hero h1{font-size:3.2rem}
@@ -563,7 +564,7 @@
     .brand-text span{font-size:.62rem;letter-spacing:.16em}
     .btn-cta{padding:9px 14px;font-size:.76rem}
     .btn-cta svg{width:14px;height:14px}
-    .hero-card-photo{height:400px}
+    .hero-card-photo{height:620px}
     .hero-card-cred{padding:20px 20px 22px;gap:14px;flex-wrap:wrap}
     .hero-card-cred .avatar{width:52px;height:52px}
     .hero-card-cred .info strong{font-size:1.25rem}
@@ -629,7 +630,7 @@
   @media(max-width:420px){
     .hero h1{font-size:1.7rem}
     .hero p.lead{font-size:.95rem}
-    .hero-card-photo{height:360px}
+    .hero-card-photo{height:560px}
     .hero-card-badge-top{top:14px;left:14px;font-size:.58rem;padding:6px 12px;letter-spacing:.12em}
     .hero-card-cred{padding:16px 16px 18px;gap:10px}
     .hero-card-cred .avatar{width:46px;height:46px}
