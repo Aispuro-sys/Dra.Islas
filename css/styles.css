@@ -630,7 +630,7 @@
     .res-form h4{font-size:1.15rem}
     .map-wrap{min-height:240px}
     .map-wrap iframe{min-height:240px}
-    .contact-blocks{grid-template-columns:1fr;gap:12px}
+    .contact-blocks{grid-template-columns:1fr 1fr;gap:10px}
     .contact-block{padding:18px}
     .contact-block .ic{width:36px;height:36px}
     .contact-block .ic svg{width:18px;height:18px}
