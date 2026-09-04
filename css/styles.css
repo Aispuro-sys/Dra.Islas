@@ -378,24 +378,26 @@
 
   /* Contact */
   .contact{background:var(--bg-soft)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-  .contact-info{display:flex;flex-direction:column;gap:24px}
-  .contact-block{padding:28px;background:var(--white);border:1px solid var(--line);border-radius:6px;display:flex;gap:18px;align-items:flex-start}
-  .contact-block .ic{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--nude),var(--nude-deep));display:flex;align-items:center;justify-content:center;color:var(--ink);flex-shrink:0}
-  .contact-block .ic svg{width:24px;height:24px}
-  .contact-block h4{font-size:1.15rem;margin-bottom:6px}
-  .contact-block p{font-size:.92rem;color:var(--ink-soft)}
-  .contact-block a{color:var(--accent-deep);font-weight:600}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+  .contact-info{display:flex;flex-direction:column;gap:16px}
+  .contact-blocks{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .contact-block{padding:20px;background:var(--white);border:1px solid var(--line);border-radius:6px;display:flex;gap:14px;align-items:flex-start}
+  .contact-block .ic{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--nude),var(--nude-deep));display:flex;align-items:center;justify-content:center;color:var(--ink);flex-shrink:0}
+  .contact-block .ic svg{width:20px;height:20px}
+  .contact-block h4{font-size:1rem;margin-bottom:4px}
+  .contact-block p{font-size:.85rem;color:var(--ink-soft);line-height:1.5}
+  .contact-block a{color:var(--accent-deep);font-weight:600;font-size:.88rem}
   .contact-block a:hover{text-decoration:underline}
+  .contact-block.full{grid-column:span 2}
   .wa-pill{
-    display:inline-flex;align-items:center;gap:10px;
+    display:inline-flex;align-items:center;gap:8px;
     background:#3D5A75;color:var(--cream);
-    padding:12px 22px;border-radius:40px;
-    font-size:.9rem;font-weight:500;margin-top:8px;
+    padding:9px 18px;border-radius:40px;
+    font-size:.84rem;font-weight:500;margin-top:6px;
     transition:background .2s;
   }
   .wa-pill:hover{background:var(--accent-deep)}
-  .wa-pill svg{width:18px;height:18px}
+  .wa-pill svg{width:16px;height:16px}
 
   .map-wrap{
     background:var(--white);border:1px solid var(--line);border-radius:6px;
@@ -408,26 +410,26 @@
   /* Reservation form */
   .res-form{
     background:var(--white);border:1px solid var(--line);border-radius:6px;
-    padding:34px;margin-top:8px;
+    padding:24px;margin-top:4px;
   }
-  .res-form h4{font-size:1.4rem;margin-bottom:6px}
-  .res-form .res-sub{font-size:.88rem;color:var(--ink-soft);margin-bottom:22px}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-  .form-field{display:flex;flex-direction:column;gap:6px}
+  .res-form h4{font-size:1.2rem;margin-bottom:4px}
+  .res-form .res-sub{font-size:.84rem;color:var(--ink-soft);margin-bottom:18px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .form-field{display:flex;flex-direction:column;gap:5px}
   .form-field.full{grid-column:span 2}
-  .form-field label{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);font-weight:600}
+  .form-field label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);font-weight:600}
   .form-field input,.form-field select,.form-field textarea{
-    padding:12px 14px;border:1px solid var(--line);border-radius:4px;
-    font-family:'Inter',sans-serif;font-size:.92rem;color:var(--ink);
+    padding:10px 12px;border:1px solid var(--line);border-radius:4px;
+    font-family:'Inter',sans-serif;font-size:.88rem;color:var(--ink);
     background:var(--cream);transition:border .2s,box-shadow .2s;
   }
   .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
     outline:none;border-color:var(--accent-deep);box-shadow:0 0 0 3px rgba(90,138,168,.12);
     background:var(--white);
   }
-  .form-field textarea{resize:vertical;min-height:80px}
-  .res-form .btn{width:100%;justify-content:center;margin-top:8px}
-  .res-note{font-size:.78rem;color:var(--taupe);text-align:center;margin-top:14px;line-height:1.5}
+  .form-field textarea{resize:vertical;min-height:64px}
+  .res-form .btn{width:100%;justify-content:center;margin-top:4px;padding:12px 24px}
+  .res-note{font-size:.74rem;color:var(--taupe);text-align:center;margin-top:12px;line-height:1.5}
 
   /* Social */
   .social-row{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
@@ -514,6 +516,7 @@
     .hero-grid,.fac-grid,.tourism-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
     .svc-grid{grid-template-columns:repeat(2,1fr)}
     .value-grid{grid-template-columns:repeat(2,1fr)}
+    .contact-blocks{grid-template-columns:1fr}
     .hero h1{font-size:2.6rem}
     .hero{padding:80px 0 80px}
     .container{padding:0 24px}
