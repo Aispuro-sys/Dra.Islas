@@ -257,6 +257,33 @@
   .svc-card.featured .svc-img::after{background:linear-gradient(180deg, rgba(30,58,82,.1) 0%, rgba(30,58,82,.5) 100%)}
   .svc-card.featured .svc-ic{background:var(--white)}
 
+  /* Service reserve button */
+  .svc-reserve{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:18px;padding:11px 20px;
+    background:linear-gradient(135deg,var(--accent-deep),var(--taupe-dark));
+    color:#fff;border-radius:40px;
+    font-size:.84rem;font-weight:600;letter-spacing:.03em;
+    transition:all .3s ease;font-family:'Inter',sans-serif;
+    box-shadow:0 4px 14px -4px rgba(30,58,82,.4);
+    text-align:center;
+  }
+  .svc-reserve:hover{transform:translateY(-2px);box-shadow:0 8px 22px -4px rgba(30,58,82,.5);background:linear-gradient(135deg,var(--taupe-dark),var(--ink))}
+  .svc-reserve::before{content:"";width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E") center/contain no-repeat}
+
+  /* Service coming soon */
+  .svc-soon{opacity:.7}
+  .svc-soon .svc-img{filter:grayscale(.6)}
+  .svc-soon-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:18px;padding:9px 20px;
+    background:var(--cream);color:var(--taupe-dark);
+    border:1px dashed var(--taupe);border-radius:40px;
+    font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    font-family:'Inter',sans-serif;text-align:center;
+  }
+  .svc-soon-badge::before{content:"";width:12px;height:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A95AD' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E") center/contain no-repeat}
+
   /* CTA Banner */
   .cta-banner{
     background:linear-gradient(135deg,var(--nude) 0%,var(--nude-deep) 100%);

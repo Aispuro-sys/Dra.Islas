@@ -10,6 +10,18 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  // Service card reserve buttons -> WhatsApp
+  document.querySelectorAll('.svc-reserve').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const servicio = btn.getAttribute('data-servicio');
+      let texto = "*Solicitud de Cita - Dra. Tamara Islas*%0A%0A";
+      texto += "*Servicio:* " + encodeURIComponent(servicio) + "%0A";
+      texto += "%0AHola, me gustaria agendar una cita para " + encodeURIComponent(servicio) + ". ¿Que horarios tienen disponibles?";
+      window.open("https://wa.me/526645234335?text=" + texto, "_blank");
+    });
+  });
+
   // Reservation form -> WhatsApp
   function enviarReserva(event) {
     event.preventDefault();
