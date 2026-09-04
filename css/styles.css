@@ -353,7 +353,7 @@
   .tourism .eyebrow{color:var(--accent)}
   .tourism h2{color:var(--cream)}
   .tourism .sec-head p{color:rgba(242,247,251,.78)}
-  .tourism-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}
+  .tourism-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:80px;align-items:center}
   .tourism-features{display:flex;flex-direction:column;gap:22px;margin-top:30px}
   .tourism-feat{display:flex;gap:16px;align-items:flex-start;padding:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:6px}
   .tourism-feat .ic{width:46px;height:46px;border-radius:50%;background:rgba(143,181,209,.18);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
