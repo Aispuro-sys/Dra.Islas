@@ -194,6 +194,13 @@
   .hero-card-cred .info .meta svg{width:13px;height:13px;color:var(--accent)}
   .hero-card-cred .divider{width:1px;height:42px;background:rgba(255,255,255,.2);flex-shrink:0}
   .hero-card-cred .exp{text-align:center;flex-shrink:0}
+  .hero-card-cred .exp .uabc-logo{
+    width:64px;height:64px;border-radius:50%;
+    background:transparent;padding:0;object-fit:contain;
+    box-shadow:none;
+    margin:0 auto;
+    filter:brightness(0) invert(1);
+  }
   .hero-card-cred .exp .num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff;font-weight:600;line-height:1}
   .hero-card-cred .exp .lbl{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:3px}
 
@@ -204,7 +211,7 @@
 
   /* Value strip */
   .value-strip{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:50px 0}
-  .value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+  .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
   .value-item{display:flex;flex-direction:column;gap:14px}
   .value-item .ic{width:46px;height:46px;border-radius:50%;background:var(--white);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--accent-deep)}
   .value-item .ic svg{width:22px;height:22px}
@@ -599,6 +606,7 @@
     .hero-card-cred .info .meta{font-size:.74rem}
     .hero-card-cred .divider{display:none}
     .hero-card-cred .exp{display:flex;flex-direction:column;align-items:flex-end;margin-left:auto}
+    .hero-card-cred .exp .uabc-logo{width:52px;height:52px;padding:7px}
     .hero-card-cred .exp .num{font-size:1.3rem}
     .hero-card-cred .exp .lbl{font-size:.58rem}
     .svc-body{padding:0 20px 24px}
@@ -664,6 +672,7 @@
     .hero-card-cred .info strong{font-size:1.1rem}
     .hero-card-cred .info .role{font-size:.66rem;letter-spacing:.1em}
     .hero-card-cred .info .meta{font-size:.68rem}
+    .hero-card-cred .exp .uabc-logo{width:46px;height:46px;padding:6px}
     .hero-card-cred .exp .num{font-size:1.1rem}
     .hero-card-cred .exp .lbl{font-size:.54rem}
     .gal-grid{grid-template-columns:1fr 1fr;gap:8px}
