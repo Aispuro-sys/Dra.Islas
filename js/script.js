@@ -56,15 +56,20 @@ function enviarReserva(event) {
 
   const citaUrl = "https://dra-islas.vercel.app/api/cita?" + params.toString();
 
-  // Full message formatted cleanly
+  // Pure ASCII escapes: \u{1F9B7}=tooth, \u{1F464}=user, \u{1F4F1}=phone, \u{1F4AC}=chat
+  const icTooth = "\u{1F9B7}";
+  const icUser = "\u{1F464}";
+  const icPhone = "\u{1F4F1}";
+  const icChat = "\u{1F4AC}";
+
   let msgLines = [];
-  msgLines.push("Ã°Å¸Â¦Â· *Nueva solicitud de cita*");
+  msgLines.push(icTooth + " *Nueva solicitud de cita*");
   msgLines.push("Clinica Dental CUES - Dra. Tamara Islas\n");
-  msgLines.push("Ã°Å¸â€˜Â¤ *Paciente:* " + nombre);
-  msgLines.push("Ã°Å¸â€œÂ± *Telefono:* " + tel);
-  msgLines.push("Ã°Å¸Â¦Â· *Servicio:* " + servicio);
+  msgLines.push(icUser + " *Paciente:* " + nombre);
+  msgLines.push(icPhone + " *Telefono:* " + tel);
+  msgLines.push(icTooth + " *Servicio:* " + servicio);
   if (msg) {
-    msgLines.push("Ã°Å¸â€™Â¬ *Mensaje:* " + msg);
+    msgLines.push(icChat + " *Mensaje:* " + msg);
   }
   msgLines.push("\nFicha de la cita:\n" + citaUrl);
 
