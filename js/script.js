@@ -17,11 +17,11 @@
       const servicio = btn.getAttribute('data-servicio');
       const citaUrl = "https://dra-islas.vercel.app/api/cita?servicio=" + encodeURIComponent(servicio);
       let texto = "";
-      texto += "ðŸ¦· *Nueva solicitud de cita*%0A";
+      texto += "Ã°Å¸Â¦Â· *Nueva solicitud de cita*%0A";
       texto += "Clinica Dental CUES - Dra. Tamara Islas%0A%0A";
-      texto += "ðŸ“‹ *Servicio:* " + encodeURIComponent(servicio) + "%0A%0A";
+      texto += "Ã°Å¸â€œâ€¹ *Servicio:* " + encodeURIComponent(servicio) + "%0A%0A";
       texto += "Hola, me gustaria agendar una cita para *" + encodeURIComponent(servicio) + "*.%0A";
-      texto += "Â¿Que horarios tienen disponibles? ðŸ“…%0A%0A";
+      texto += "Ã‚Â¿Que horarios tienen disponibles? Ã°Å¸â€œâ€¦%0A%0A";
       texto += "Ver detalles de la solicitud:%0A";
       texto += citaUrl;
       window.location.href = "https://wa.me/526645234335?text=" + texto;
@@ -45,12 +45,12 @@
     const citaUrl = "https://dra-islas.vercel.app/api/cita?" + params.toString();
 
     let texto = "";
-    texto += "ðŸ¦· *Nueva solicitud de cita*%0A";
+    texto += "Ã°Å¸Â¦Â· *Nueva solicitud de cita*%0A";
     texto += "Clinica Dental CUES - Dra. Tamara Islas%0A%0A";
-    texto += "ðŸ‘¤ *Paciente:* " + encodeURIComponent(nombre) + "%0A";
-    texto += "ðŸ“± *Telefono:* " + encodeURIComponent(tel) + "%0A";
-    texto += "ðŸ¦· *Servicio:* " + encodeURIComponent(servicio) + "%0A";
-    if (msg) texto += "ðŸ’¬ *Mensaje:* " + encodeURIComponent(msg) + "%0A";
+    texto += "Ã°Å¸â€˜Â¤ *Paciente:* " + encodeURIComponent(nombre) + "%0A";
+    texto += "Ã°Å¸â€œÂ± *Telefono:* " + encodeURIComponent(tel) + "%0A";
+    texto += "Ã°Å¸Â¦Â· *Servicio:* " + encodeURIComponent(servicio) + "%0A";
+    if (msg) texto += "Ã°Å¸â€™Â¬ *Mensaje:* " + encodeURIComponent(msg) + "%0A";
     texto += "%0AFicha de la cita:%0A";
     texto += citaUrl;
     window.location.href = "https://wa.me/526645234335?text=" + texto;
