@@ -23,7 +23,8 @@ document.querySelectorAll('.svc-reserve').forEach(btn => {
 
     if (select && servicio) {
       for (let i = 0; i < select.options.length; i++) {
-        if (select.options[i].text.toLowerCase().includes(servicio.toLowerCase())) {
+        if (select.options[i].text.toLowerCase().includes(servicio.toLowerCase()) || 
+            select.options[i].value.toLowerCase().includes(servicio.toLowerCase())) {
           select.selectedIndex = i;
           break;
         }
@@ -34,7 +35,7 @@ document.querySelectorAll('.svc-reserve').forEach(btn => {
       contactSection.scrollIntoView({ behavior: 'smooth' });
       setTimeout(() => {
         if (nombreInput) nombreInput.focus();
-      }, 600);
+      }, 500);
     }
   });
 });
@@ -44,7 +45,7 @@ function enviarReserva(event) {
   event.preventDefault();
   const nombre = document.getElementById('r-nombre').value.trim();
   const tel = document.getElementById('r-tel').value.trim();
-  const servicio = document.getElementById('r-servicio').value;
+  const servicio = document.getElementById('r-servicio').value || 'Consulta General';
   const msg = document.getElementById('r-msg').value.trim();
 
   const params = new URLSearchParams();
@@ -55,16 +56,19 @@ function enviarReserva(event) {
 
   const citaUrl = "https://dra-islas.vercel.app/api/cita?" + params.toString();
 
-  // URL-encoded strings with hex escape codes for emojis
-  let texto = "%F0%9F%A6%B7 *Nueva solicitud de cita*%0A";
-  texto += "Clinica Dental CUES - Dra. Tamara Islas%0A%0A";
-  texto += "%F0%9F%91%A4 *Paciente:* " + encodeURIComponent(nombre) + "%0A";
-  texto += "%F0%9F%93%B1 *Telefono:* " + encodeURIComponent(tel) + "%0A";
-  texto += "%F0%9F%A6%B7 *Servicio:* " + encodeURIComponent(servicio) + "%0A";
-  if (msg) texto += "%F0%9F%92%AC *Mensaje:* " + encodeURIComponent(msg) + "%0A";
-  texto += "%0AFicha de la cita:%0A";
-  texto += citaUrl;
+  // Full message formatted cleanly
+  let msgLines = [];
+  msgLines.push("ðŸ¦· *Nueva solicitud de cita*");
+  msgLines.push("Clinica Dental CUES - Dra. Tamara Islas\n");
+  msgLines.push("ðŸ‘¤ *Paciente:* " + nombre);
+  msgLines.push("ðŸ“± *Telefono:* " + tel);
+  msgLines.push("ðŸ¦· *Servicio:* " + servicio);
+  if (msg) {
+    msgLines.push("ðŸ’¬ *Mensaje:* " + msg);
+  }
+  msgLines.push("\nFicha de la cita:\n" + citaUrl);
 
-  window.location.href = "https://wa.me/526645234335?text=" + texto;
+  const fullText = msgLines.join("\n");
+  window.location.href = "https://wa.me/526645234335?text=" + encodeURIComponent(fullText);
   return false;
 }

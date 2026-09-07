@@ -3,7 +3,24 @@ export default function handler(req, res) {
 
   const safeNombre = q.nombre || q.paciente || q.name || '';
   const safeTel = q.tel || q.telefono || q.phone || '';
-  const safeServicio = q.servicio || q.tratamiento || q.treatment || 'Consulta General';
+  let rawServicio = q.servicio || q.tratamiento || q.treatment || '';
+
+  // Format known services with proper accents
+  let safeServicio = rawServicio;
+  if (/odontopediatria/i.test(rawServicio)) {
+    safeServicio = 'OdontopediatrÃ­a';
+  } else if (/protesis\s*fija/i.test(rawServicio)) {
+    safeServicio = 'PrÃ³tesis Fija';
+  } else if (/protesis\s*removible/i.test(rawServicio)) {
+    safeServicio = 'PrÃ³tesis Removibles';
+  } else if (/limpieza|periodoncia/i.test(rawServicio)) {
+    safeServicio = 'Limpieza Profunda & Periodoncia';
+  } else if (/endodoncia/i.test(rawServicio)) {
+    safeServicio = 'Endodoncia Conservadora';
+  } else if (!safeServicio) {
+    safeServicio = 'Consulta General';
+  }
+
   const safeMsg = q.msg || q.mensaje || q.message || '';
 
   const title = safeNombre ? `Ficha de Cita - ${safeNombre}` : `Ficha de Cita - ${safeServicio}`;
