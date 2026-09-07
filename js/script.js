@@ -15,19 +15,15 @@
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const servicio = btn.getAttribute('data-servicio');
+      const citaUrl = "https://dra-islas.vercel.app/api/cita?servicio=" + encodeURIComponent(servicio);
       let texto = "";
-      texto += "%0A%0A*CLINICA DENTAL CUES*%0A";
-      texto += "Dra. Tamara Islas%0A";
-      texto += "Odontologia Especializada%0A";
-      texto += "%0A%0A%0A";
-      texto += "━━━━━━━━━━━━━━━%0A";
-      texto += "🦷 *NUEVA SOLICITUD DE CITA*%0A";
-      texto += "━━━━━━━━━━━━━━━%0A%0A";
+      texto += "🦷 *Nueva solicitud de cita*%0A";
+      texto += "Clinica Dental CUES - Dra. Tamara Islas%0A%0A";
       texto += "📋 *Servicio:* " + encodeURIComponent(servicio) + "%0A%0A";
       texto += "Hola, me gustaria agendar una cita para *" + encodeURIComponent(servicio) + "*.%0A";
       texto += "¿Que horarios tienen disponibles? 📅%0A%0A";
-      texto += "━━━━━━━━━━━━━━━%0A";
-      texto += "Enviado desde dra-islas.vercel.app";
+      texto += "Ver detalles de la solicitud:%0A";
+      texto += citaUrl;
       window.location.href = "https://wa.me/526645234335?text=" + texto;
     });
   });
@@ -40,20 +36,23 @@
     const servicio = document.getElementById('r-servicio').value;
     const msg = document.getElementById('r-msg').value.trim();
 
+    const params = new URLSearchParams({
+      servicio: servicio,
+      nombre: nombre,
+      tel: tel
+    });
+    if (msg) params.append('msg', msg);
+    const citaUrl = "https://dra-islas.vercel.app/api/cita?" + params.toString();
+
     let texto = "";
-    texto += "%0A%0A*CLINICA DENTAL CUES*%0A";
-    texto += "Dra. Tamara Islas%0A";
-    texto += "Odontologia Especializada%0A";
-    texto += "%0A%0A%0A";
-    texto += "━━━━━━━━━━━━━━━%0A";
-    texto += "🦷 *NUEVA SOLICITUD DE CITA*%0A";
-    texto += "━━━━━━━━━━━━━━━%0A%0A";
+    texto += "🦷 *Nueva solicitud de cita*%0A";
+    texto += "Clinica Dental CUES - Dra. Tamara Islas%0A%0A";
     texto += "👤 *Paciente:* " + encodeURIComponent(nombre) + "%0A";
     texto += "📱 *Telefono:* " + encodeURIComponent(tel) + "%0A";
     texto += "🦷 *Servicio:* " + encodeURIComponent(servicio) + "%0A";
     if (msg) texto += "💬 *Mensaje:* " + encodeURIComponent(msg) + "%0A";
-    texto += "%0A━━━━━━━━━━━━━━━%0A";
-    texto += "Enviado desde dra-islas.vercel.app";
+    texto += "%0AFicha de la cita:%0A";
+    texto += citaUrl;
     window.location.href = "https://wa.me/526645234335?text=" + texto;
     return false;
   }
