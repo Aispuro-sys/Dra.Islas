@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+﻿export default function handler(req, res) {
   const { servicio, nombre, tel, msg } = req.query;
 
   const safeServicio = servicio || 'Consulta General';
@@ -50,23 +50,23 @@ export default function handler(req, res) {
 <body>
   <div class="card">
     <div class="card-header">
-      <h1>🦷 Solicitud de Cita</h1>
-      <p>Clinica Dental CUES · Dra. Tamara Islas</p>
+      <h1>ðŸ¦· Solicitud de Cita</h1>
+      <p>Clinica Dental CUES Â· Dra. Tamara Islas</p>
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="ic">👤</div>
+        <div class="ic">ðŸ‘¤</div>
         <div><div class="label">Paciente</div><div class="value">${safeNombre}</div></div>
       </div>
       <div class="row">
-        <div class="ic">🦷</div>
+        <div class="ic">ðŸ¦·</div>
         <div><div class="label">Servicio</div><div class="value">${safeServicio}</div></div>
       </div>
       <div class="row">
-        <div class="ic">📱</div>
+        <div class="ic">ðŸ“±</div>
         <div><div class="label">Telefono</div><div class="value">${safeTel}</div></div>
       </div>
-      ${safeMsg ? `<div class="row"><div class="ic">💬</div><div><div class="label">Mensaje</div><div class="value">${safeMsg}</div></div></div>` : ''}
+      ${safeMsg ? `<div class="row"><div class="ic">ðŸ’¬</div><div><div class="label">Mensaje</div><div class="value">${safeMsg}</div></div></div>` : ''}
     </div>
     <div class="footer">
       <a href="https://wa.me/526645234335">Confirmar por WhatsApp</a>
