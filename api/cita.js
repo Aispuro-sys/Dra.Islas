@@ -1,12 +1,29 @@
+function escapeHtml(str, maxLen = 200) {
+  if (typeof str !== 'string') return '';
+  const trimmed = str.trim().slice(0, maxLen);
+  return trimmed
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 export default function handler(req, res) {
+  // Only allow GET requests
+  if (req.method && req.method !== 'GET') {
+    res.setHeader('Allow', ['GET']);
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
   const q = req.query || {};
 
-  const safeNombre = q.nombre || q.paciente || q.name || '';
-  const safeTel = q.tel || q.telefono || q.phone || '';
-  let rawServicio = q.servicio || q.tratamiento || q.treatment || '';
+  const safeNombre = escapeHtml(q.nombre || q.paciente || q.name || '', 80);
+  const safeTel = escapeHtml(q.tel || q.telefono || q.phone || '', 30);
+  let rawServicio = (q.servicio || q.tratamiento || q.treatment || '').toString().slice(0, 80);
 
-  // Format known services with standard HTML entities for 100% clean rendering
-  let safeServicio = rawServicio;
+  // Format known services with standard HTML entities for 100% clean and safe rendering
+  let safeServicio = escapeHtml(rawServicio, 80);
   if (/odontopediatria/i.test(rawServicio)) {
     safeServicio = 'Odontopediatr&iacute;a';
   } else if (/protesis\s*fija/i.test(rawServicio)) {
@@ -21,7 +38,7 @@ export default function handler(req, res) {
     safeServicio = 'Consulta General';
   }
 
-  const safeMsg = q.msg || q.mensaje || q.message || '';
+  const safeMsg = escapeHtml(q.msg || q.mensaje || q.message || '', 500);
 
   const cleanServicioText = safeServicio.replace(/&oacute;/g, 'o').replace(/&iacute;/g, 'i').replace(/&amp;/g, '&');
   const title = safeNombre ? `Ficha de Cita - ${safeNombre}` : `Ficha de Cita - ${cleanServicioText}`;
@@ -155,6 +172,7 @@ export default function handler(req, res) {
     color:#1E3A52;
     font-size:0.92rem;
     line-height:1.4;
+    word-break:break-word;
   }
 </style>
 </head>
@@ -183,5 +201,8 @@ export default function handler(req, res) {
 </html>`;
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
   res.status(200).send(html);
 }
