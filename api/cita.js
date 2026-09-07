@@ -1,10 +1,10 @@
 export default function handler(req, res) {
-  const { servicio, nombre, tel, msg } = req.query;
+  const q = req.query || {};
 
-  const safeServicio = servicio || 'Consulta General';
-  const safeNombre = nombre ? nombre : '';
-  const safeTel = tel ? tel : '';
-  const safeMsg = msg || '';
+  const safeNombre = q.nombre || q.paciente || q.name || '';
+  const safeTel = q.tel || q.telefono || q.phone || '';
+  const safeServicio = q.servicio || q.tratamiento || q.treatment || 'Consulta General';
+  const safeMsg = q.msg || q.mensaje || q.message || '';
 
   const title = safeNombre ? `Ficha de Cita - ${safeNombre}` : `Ficha de Cita - ${safeServicio}`;
   const description = `Servicio: ${safeServicio}${safeTel ? ` | Tel: ${safeTel}` : ''}`;

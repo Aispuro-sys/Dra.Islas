@@ -55,7 +55,7 @@ function enviarReserva(event) {
 
   const citaUrl = "https://dra-islas.vercel.app/api/cita?" + params.toString();
 
-  // URL-encoded strings with hex escape codes for emojis: ðŸ¦· %F0%9F%A6%B7 | ðŸ‘¤ %F0%9F%91%A4 | ðŸ“± %F0%9F%93%B1 | ðŸ’¬ %F0%9F%92%AC
+  // URL-encoded strings with hex escape codes for emojis: Ã°Å¸Â¦Â· %F0%9F%A6%B7 | Ã°Å¸â€˜Â¤ %F0%9F%91%A4 | Ã°Å¸â€œÂ± %F0%9F%93%B1 | Ã°Å¸â€™Â¬ %F0%9F%92%AC
   let texto = "%F0%9F%A6%B7 *Nueva solicitud de cita*%0A";
   texto += "Clinica Dental CUES - Dra. Tamara Islas%0A%0A";
   texto += "%F0%9F%91%A4 *Paciente:* " + encodeURIComponent(nombre) + "%0A";
