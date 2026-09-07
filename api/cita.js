@@ -1,4 +1,4 @@
-﻿export default function handler(req, res) {
+export default function handler(req, res) {
   const { servicio, nombre, tel, msg } = req.query;
 
   const safeServicio = servicio || 'Consulta General';
