@@ -5,16 +5,16 @@ export default function handler(req, res) {
   const safeTel = q.tel || q.telefono || q.phone || '';
   let rawServicio = q.servicio || q.tratamiento || q.treatment || '';
 
-  // Format known services with proper accents
+  // Format known services with standard HTML entities for 100% clean rendering
   let safeServicio = rawServicio;
   if (/odontopediatria/i.test(rawServicio)) {
-    safeServicio = 'OdontopediatrÃ­a';
+    safeServicio = 'Odontopediatr&iacute;a';
   } else if (/protesis\s*fija/i.test(rawServicio)) {
-    safeServicio = 'PrÃ³tesis Fija';
+    safeServicio = 'Pr&oacute;tesis Fija';
   } else if (/protesis\s*removible/i.test(rawServicio)) {
-    safeServicio = 'PrÃ³tesis Removibles';
+    safeServicio = 'Pr&oacute;tesis Removibles';
   } else if (/limpieza|periodoncia/i.test(rawServicio)) {
-    safeServicio = 'Limpieza Profunda & Periodoncia';
+    safeServicio = 'Limpieza Profunda &amp; Periodoncia';
   } else if (/endodoncia/i.test(rawServicio)) {
     safeServicio = 'Endodoncia Conservadora';
   } else if (!safeServicio) {
@@ -23,8 +23,9 @@ export default function handler(req, res) {
 
   const safeMsg = q.msg || q.mensaje || q.message || '';
 
-  const title = safeNombre ? `Ficha de Cita - ${safeNombre}` : `Ficha de Cita - ${safeServicio}`;
-  const description = `Servicio: ${safeServicio}${safeTel ? ` | Tel: ${safeTel}` : ''}`;
+  const cleanServicioText = safeServicio.replace(/&oacute;/g, 'o').replace(/&iacute;/g, 'i').replace(/&amp;/g, '&');
+  const title = safeNombre ? `Ficha de Cita - ${safeNombre}` : `Ficha de Cita - ${cleanServicioText}`;
+  const description = `Servicio: ${cleanServicioText}${safeTel ? ` | Tel: ${safeTel}` : ''}`;
   const siteUrl = 'https://dra-islas.vercel.app';
   const ogImage = `${siteUrl}/assets/banner-cita.jpg`;
 

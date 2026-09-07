@@ -58,13 +58,13 @@ function enviarReserva(event) {
 
   // Full message formatted cleanly
   let msgLines = [];
-  msgLines.push("ðŸ¦· *Nueva solicitud de cita*");
+  msgLines.push("Ã°Å¸Â¦Â· *Nueva solicitud de cita*");
   msgLines.push("Clinica Dental CUES - Dra. Tamara Islas\n");
-  msgLines.push("ðŸ‘¤ *Paciente:* " + nombre);
-  msgLines.push("ðŸ“± *Telefono:* " + tel);
-  msgLines.push("ðŸ¦· *Servicio:* " + servicio);
+  msgLines.push("Ã°Å¸â€˜Â¤ *Paciente:* " + nombre);
+  msgLines.push("Ã°Å¸â€œÂ± *Telefono:* " + tel);
+  msgLines.push("Ã°Å¸Â¦Â· *Servicio:* " + servicio);
   if (msg) {
-    msgLines.push("ðŸ’¬ *Mensaje:* " + msg);
+    msgLines.push("Ã°Å¸â€™Â¬ *Mensaje:* " + msg);
   }
   msgLines.push("\nFicha de la cita:\n" + citaUrl);
 
