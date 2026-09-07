@@ -9,7 +9,7 @@ export default function handler(req, res) {
   const title = `Nueva Solicitud de Cita - ${safeNombre}`;
   const description = `Servicio: ${safeServicio} | Tel: ${safeTel}${safeMsg ? ` | Msg: ${safeMsg}` : ''}`;
   const siteUrl = 'https://dra-islas.vercel.app';
-  const ogImage = `${siteUrl}/assets/banner-cita.png`;
+  const ogImage = `${siteUrl}/assets/banner-cita.jpg`;
 
   const html = `<!DOCTYPE html>
 <html lang="es">
